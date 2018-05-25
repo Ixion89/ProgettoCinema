@@ -26,12 +26,14 @@ $st->set_ora_apertura('09:00');
 $st->delete_sala('Zefiro');
 print_r($st); */
 
-$f=new EFilm();
+/*$f=new EFilm();
 $ga=array();
 $f->costruttore('Dracula','Bram Stoker',1960,90,$ga,$ga,'Pixar');
 $f->add_genere('Horror');
 $f->add_attore_cast('Leslie Nielsen');
 $f->set_titolo('Dracula 2');
 print_r($f);
+ */
+
 
 ?>
