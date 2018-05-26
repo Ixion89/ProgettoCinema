@@ -35,5 +35,8 @@ $f->set_titolo('Dracula 2');
 print_r($f);
  */
 
+$p=new EPosto();
+$p->costruttore('a',19,true);
+print_r($p);
 
 ?>
