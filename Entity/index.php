@@ -24,7 +24,7 @@ $s2->costruttore('Venere',35,'Anfiteatro');
 $st->add_sala($s2);
 $st->set_ora_apertura('09:00');
 $st->delete_sala('Zefiro');
-print_r($st); */
+print_r($st);   */
 
 /*$f=new EFilm();
 $ga=array();
@@ -35,8 +35,12 @@ $f->set_titolo('Dracula 2');
 print_r($f);
  */
 
-$p=new EPosto();
+/*$p=new EPosto();
 $p->costruttore('a',19,true);
-print_r($p);
+print_r($p);  */
 
+$m=new EMappa();
+print_r($m);
+$m->costruttore(3,3,'quadrangolare');
+print_r($m);
 ?>
