@@ -16,7 +16,7 @@ class EMappa{
              while ($i<=$f)
                  {for ($j=1;$j<=$p;$j++)
                      {$x=new EPosto();
-                     $x->costruttore($val,$j,true);
+                     $x->costruttore($val,$j,false);
                      $s[$val][$j]= $x;}
                  $val++;
                  $i++;
@@ -34,8 +34,18 @@ class EMappa{
       public function set_schema(array $valore){$this->schema=$valore;}
       public function set_nome_schema(string $valore){$this->nome_schema=$valore;}
       
-      public function delete_posti(string $f, int $s_p, int $e_p){}
+      public function delete_posti(string $f, int $s_p, int $e_p){
+             if (array_key_exists($f,$this->schema)){
+                if (array_key_exists($s_p,$this->schema[$f])){               //se non esistono più il numero di posto iniziale o finale non elimina niente
+                   if (array_key_exists($e_p,$this->schema[$f])){
+                      array_splice($this->schema[$f],$s_p-1,$e_p-$s_p+1);}
+                   }
+                }
+             }
+                   
+      }
+
       
-}
+
 
 ?>

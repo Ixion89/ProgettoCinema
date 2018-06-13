@@ -41,6 +41,8 @@ print_r($p);  */
 
 $m=new EMappa();
 print_r($m);
-$m->costruttore(3,3,'quadrangolare');
+$m->costruttore(3,4,'quadrangolare');
+$m->delete_posti("B",2,3);
+$m->delete_posti("B",1,3);
 print_r($m);
 ?>
