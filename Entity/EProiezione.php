@@ -6,7 +6,7 @@ class EProiezione{
       public $orario;
       public $mappa_pro;
       public $tipo;
-      public $id;
+      public $id;     //l'id contiene data,nome sala, ora e tipo separati da #
       
       public function __construct (){}
       public function costruttore (EFilm $f, ESala $s, string $g,string $o, EMappa $m, string $t){
