@@ -14,8 +14,8 @@ class EProfilo{
 		
 public function __construct(){}
 public function costruttore (ECredenziali $CC, ESconto $Sconto){
-	$this->cartacredito= new ECredenziali();
-	$this->Sconto= new ESconto();
+	$this->set_cartacredito($CC);
+	$this->listasconti=$Sconto;
 }
 public function get_nome(){return $this->nome;}
 public function set_nome(string $valore){$this->nome=$valore;}
@@ -30,7 +30,7 @@ public function set_citta(string $valore){$this->citta=$valore;}
 public function get_telefono (){return $this->telefono;}
 public function set_telegono(string $valore){$this->telefono=telefono;}
 public function get_cartacredito(){return $this->cartacredito;}
-public function set_cartacredito(string $valore){$this->cartacredito=cartacredito;}
+public function set_cartacredito(ECredenziali $valore){$this->cartacredito=$valore;}
 public function get_listasconti(){return $this->listasconti;}
 public function set_listasconti ($valore){$this->listasconti=$valore;}
 
