@@ -44,8 +44,12 @@ $m=new EMappa();
 $m->costruttore(3,4,'quadrangolare');
 $m->delete_posti("B",2,3);
 $m->delete_posti("B",1,3);
-//print_r($m); */
+//print_r($m);
 
-$p=EProiezione::costruttore($f,$s,'12,00',$m,'3D');
-print_r($p);
+$p=EProiezione::costruttore($f,$s,'13-06-2018','12,00',$m,"3");
+//print_r($p);
+
+$x=$m->get_schema();
+$i=EItem::costruttore(EItem::crea_nome($p,$x['A'][1]),4.00);
+print_r($i);
 ?>
