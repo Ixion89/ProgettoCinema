@@ -12,22 +12,25 @@ class EGuest {
        public function get_password(){return $this->password;}
        public function set_username(string $valore){$this->username=$valore;}
        public function set_password(string $valore){$this->password=$valore;}
-       public function login (string $un, string $pw){
+       public function login (string $un, string $pw){      //ritorna sempre un oggetto
                 if ($un=='mariorossi'){
                    if ($pw=='red'){
-                      $a= new EUtente($un,$pw);}
+                      $a= new EUtente($un,$pw);
+					  return $a;}  //ritorna utente
                    else{
                         print("password errata!");
+						return $this;  //se false ritorna guest
                    }}
 
                 elseif ($un=='movieaq'){
                        if ($pw=='red'){
-                        $b= new EFiliale($un,$pw);}
+                        $a= new EFiliale($un,$pw);
+						return $a;}  //ritorna filiale
                 else {
-                     print ('password errata!');}}
-                else {print("Utente non esistente!");}}
-
-                
-
+                     print ('password errata!');
+					 return $this;}}  //sefalse ritorna guest
+                else {print("Utente non esistente!");
+				return $this;}}
+}
 
 ?>
