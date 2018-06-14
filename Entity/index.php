@@ -47,9 +47,23 @@ $m->delete_posti("B",1,3);
 //print_r($m);
 
 $p=EProiezione::costruttore($f,$s,'13-06-2018','12,00',$m,"3");
+$p1=EProiezione::costruttore($f,$s1,'14-06-2018','13,00',$m,"2");
 //print_r($p);
 
 $x=$m->get_schema();
-$i=EItem::costruttore(EItem::crea_nome($p,$x['A'][1]),4.00);
+$i[]=EItem::costruttore($p,$x['A'][1]);
+$i[]=EItem::costruttore($p1,$x['C'][2]);
+$i[0]->sconta_valore(2);
 print_r($i);
+//print_r($i);
+$cred=new ECredenziali();
+$cred->costruttore('123456789','Visa','12/18');
+$prof=new EProfilo ();
+$prof->costruttore($cred,$ga);
+$u=new EUtente('teresabove@prova.it','000',$prof);
+$pag=EPagamento::costruttore('F000',$i);
+$pag->pagamento();
+print_r($pag);
+
+
 ?>
