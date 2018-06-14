@@ -50,6 +50,19 @@ class EPagamento{
              else if ($this->get_persona()=='teresabove@prova.it'){
                   $this->set_pagato(true);}
              }
+      public function crea_biglietto(){
+                $x=$this->get_id().bin2hex(random_bytes(1));
+                $l=$this->get_lista_item();
+                $r='';
+                for ($i=0;$i<count($l);$i++){
+                    $y=$l[$i]->get_nome();
+                    $y=explode('#',$y);
+                    $y[0]=$y[0][4].$y[0][5].'-'.$y[0][2].$y[0][3].'-'.$y[0][0].$y[0][1] ;
+                    $r=$r.'Data '.$y[0].' Ora '.$y[2]."\n".'Film in '.$y[3].'D: '.'recupero nome film da DB tramite id'."\n";
+                    $r=$r.'Sala '.$y[1].' Posto '.$y[4]."\n".'Prezzo: '.$l[$i]->get_valore()."\n\n";}
+                $r=$r.'Totale Pagato: '.$this->get_totale();
+                $bigl=new EBiglietto($r,$x);
+                return $bigl;}
 }
 
 ?>

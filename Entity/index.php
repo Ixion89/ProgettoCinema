@@ -54,7 +54,7 @@ $x=$m->get_schema();
 $i[]=EItem::costruttore($p,$x['A'][1]);
 $i[]=EItem::costruttore($p1,$x['C'][2]);
 $i[0]->sconta_valore(2);
-print_r($i);
+//print_r($i);
 //print_r($i);
 $cred=new ECredenziali();
 $cred->costruttore('123456789','Visa','12/18');
@@ -63,7 +63,10 @@ $prof->costruttore($cred,$ga);
 $u=new EUtente('teresabove@prova.it','000',$prof);
 $pag=EPagamento::costruttore('F000',$i);
 $pag->pagamento();
-print_r($pag);
+//print_r($pag);
+
+$biglietto=$pag->crea_biglietto();
+$biglietto->stampa_biglietto();
 
 
 ?>
