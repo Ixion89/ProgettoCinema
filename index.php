@@ -1,7 +1,6 @@
 <?php
-function __autoload($classname) {
-         $filename="./".$classname.".php";
-         include_once($filename);}
+require_once 'include/autoload.inc.php';
+require_once 'include/config.inc.php';
          
 /*$s=new ESala('Aurora',40,'Anfiteatro');
 var_dump($s);
