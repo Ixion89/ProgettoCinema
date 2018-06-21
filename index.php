@@ -65,9 +65,18 @@ $pag->pagamento();
 //print_r($pag);
 
 $biglietto=$pag->crea_biglietto();
-$biglietto->stampa_biglietto();
+//$biglietto->stampa_biglietto();
 
 $conn=new Fdb();
+print($conn->query('SELECT * FROM Film'));
+//print_r($conn->getArrayAss());
+//print_r($conn->getObject());
+print_r($conn->getObjectArray());
+$conn->close();
+print($conn->query('SELECT * FROM Film'));
+//print_r($conn->getArrayAss());
+//print_r($conn->getObject());
+print_r($conn->getObjectArray());
 
 
 ?>
