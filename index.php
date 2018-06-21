@@ -67,5 +67,7 @@ $pag->pagamento();
 $biglietto=$pag->crea_biglietto();
 $biglietto->stampa_biglietto();
 
+$conn=new Fdb();
+
 
 ?>
