@@ -2,7 +2,7 @@
 
 class ESconto{
   public $idsconto;
-  public $base_applicazione;
+  public $baseapplicazione;
  
   public function __construct(){}
   public function costruttore(int $idprec, float $val){
@@ -11,8 +11,8 @@ class ESconto{
   }
   public function get_idsconto(){return $this->idssconto;}
   public function set_idsconto(int $val){$this->idsconto;}
-  public function get_valore(){return $this->base_applicazione;}
-  public function set_valore(float $valore){$this->base_applicazione;}
+  public function get_valore(){return $this->baseapplicazione;}
+  public function set_valore(float $valore){$this->baseapplicazione;}
   
   public function calcola_sconto(float $val1, float $val2){
 	  if ($val1 != 0 && $val2 !=0){

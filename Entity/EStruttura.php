@@ -4,8 +4,8 @@ class EStruttura {
       public $indirizzo;
       public $telefono;
       public $email;
-      public $orari_apertura;  //array con 2 stringhe
-      public $lista_sale;      //array
+      public $orariapertura;  //array con 2 stringhe
+      public $listasale;      //array
       
       public function __construct(){
              }
