@@ -4,9 +4,9 @@ class EProiezione{
       public $sala;
       public $giorno;        //da inserire in formato gg-mm-aaaa
       public $orario;
-      public $mappa_pro;
+      public $mappaproiezione;
       public $tipo;
-      public $id;     //l'id contiene data,nome sala, ora e tipo separati da #
+      public $idproiezione;     //l'id contiene data,nome sala, ora e tipo separati da #
       
       public function __construct (){}
       public function costruttore (EFilm $f, ESala $s, string $g,string $o, EMappa $m, string $t){
@@ -24,9 +24,9 @@ class EProiezione{
       public function get_sala(){return $this->sala;}
       public function get_giorno(){return $this->giorno;}
       public function get_orario(){return $this->orario;}
-      public function get_mappa_pro(){return $this->mappa_pro;}
+      public function get_mappa_pro(){return $this->mappaproiezione;}
       public function get_tipo(){return $this->tipo;}
-      public function get_id(){return $this->id;}
+      public function get_id(){return $this->idproiezione;}
 
       public function set_film(EFilm $valore){$this->film=$valore;}
       public function set_sala(ESala $valore){$this->sala=$valore;}
@@ -37,7 +37,7 @@ class EProiezione{
              $a=explode(' ',$a);
              if($a[0]>=0&&$a[0]<=23&&$a[1]>=0&&$a[1]<=59){
              $this->orario=$a[0].'.'.$a[1];}}
-      public function set_mappa_pro(EMappa $valore){$this->mappa_pro=$valore;}
+      public function set_mappa_pro(EMappa $valore){$this->mappaproiezione=$valore;}
       public function set_tipo(string $valore){$this->tipo=$valore;}
       public function set_id(){
              $x=explode('-',$this->get_giorno());

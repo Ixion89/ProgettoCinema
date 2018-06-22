@@ -1,12 +1,13 @@
 <?php
 
-class ECredenziali{
+class ECredenziale{
  public $numerocarta;
  public $circuitocarta;
  public $scadenza;
+
  
  public function __construct(){}
- public function costruttore(string $nc, string $cc, string $scad){
+ public function costruttore(string $nc, string $cc, string $scad ){
           $this->set_numerocarta($nc);
 		  $this->set_circuitocarta($cc);
 		  $this->set_scadenza($scad);

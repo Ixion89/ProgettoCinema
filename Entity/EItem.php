@@ -1,6 +1,6 @@
 <?php
 class EItem {
-      public $nome;      //contiene l'id della proiezione e con un altro # il posto
+      public $nome;  //contiene l'id della proiezione e con un altro # il posto
       public $valore;
       
       public function __construct (){}

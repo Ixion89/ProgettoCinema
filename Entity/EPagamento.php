@@ -4,7 +4,7 @@ class EPagamento{
       public $persona;
       public $totale;   //float
       public $IDPagamento;  //string //id di ogni pagamento----> 1 biglietto
-      public $ListaItem;  //array di item
+      public $listaitem;  //array di item
       public $pagato;
 
       public function __construct(){}

@@ -4,9 +4,9 @@ class EFilm {
       public $regista;
       public $anno;
       public $durata;      //da valutare in minuti
-      public $generi;     //array
+      public $generi;     //array formattato in stringa su db
       public $cast;       //array
-      public $casa_produzione;
+      public $casaproduzione;
       
       public function __construct (){}
       public function costruttore (string $t,string $r,int $y,int $d,array $g,array $c, string $p){
@@ -24,7 +24,7 @@ class EFilm {
       public function get_durata(){return $this->durata;}
       public function get_generi(){return $this->generi;}
       public function get_cast(){return $this->cast;}
-      public function get_casa_produzione(){return $this->casa_produzione;}
+      public function get_casa_produzione(){return $this->casaproduzione;}
       
       public function set_titolo(string $valore){$this->titolo=$valore;}
       public function set_anno(int $valore){$this->anno=$valore;}

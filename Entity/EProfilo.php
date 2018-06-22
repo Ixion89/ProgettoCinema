@@ -1,7 +1,7 @@
 <?php
 
 require_once'C:\xampp\htdocs\_progetto\Entity\ESconto.php';
-require_once'C:\xampp\htdocs\_progetto\Entity\ECredenziali.php';
+require_once 'C:\xampp\htdocs\_progetto\Entity\ECredenziale.php';
 class EProfilo{
         public $nome;
 		public $cognome;
@@ -11,9 +11,9 @@ class EProfilo{
 		public $telefono;
 		public $cartacredito;
 		public $listasconti;
-		
+
 public function __construct(){}
-public function costruttore (ECredenziali $CC, array $Sconti){
+public function costruttore (ECredenziale $CC, array $Sconti){
 	$this->set_cartacredito($CC);
 	$this->listasconti=$Sconti;
 }
@@ -30,7 +30,7 @@ public function set_citta(string $valore){$this->citta=$valore;}
 public function get_telefono (){return $this->telefono;}
 public function set_telegono(string $valore){$this->telefono=telefono;}
 public function get_cartacredito(){return $this->cartacredito;}
-public function set_cartacredito(ECredenziali $valore){$this->cartacredito=$valore;}
+public function set_cartacredito(ECredenziale $valore){$this->cartacredito=$valore;}
 public function get_listasconti(){return $this->listasconti;}
 public function set_listasconti (array $valore){$this->listasconti=$valore;}
 
