@@ -8,7 +8,7 @@ $s->set_nome('Venere');
 var_dump($s);
 echo ('Il nome della sala e:'.$s->get_nome()); */
 
-$st=new EStruttura();
+/*$st=new EStruttura();
 $s=new ESala ();
 $s->costruttore('Aurora',40,'Anfiteatro');
 $ls[]=$s;
@@ -38,7 +38,7 @@ $f->set_titolo('Dracula 2');
 $p->costruttore('a',19,true);
 print_r($p);  */
 
-$m=new EMappa();
+/*$m=new EMappa();
 //print_r($m);
 $m->costruttore(3,4,'quadrangolare');
 $m->delete_posti("B",2,3);
@@ -65,18 +65,20 @@ $pag->pagamento();
 //print_r($pag);
 
 $biglietto=$pag->crea_biglietto();
-//$biglietto->stampa_biglietto();
+//$biglietto->stampa_biglietto(); */
 
 $conn=new Fdb();
-print($conn->query('SELECT * FROM Film'));
+//print($conn->query('SELECT * FROM Film'));
 //print_r($conn->getArrayAss());
 //print_r($conn->getObject());
-print_r($conn->getObjectArray());
-$conn->close();
-print($conn->query('SELECT * FROM Film'));
+//print_r($conn->getObjectArray());
+//$conn->close();
+//print($conn->query('SELECT * FROM Film'));
 //print_r($conn->getArrayAss());
 //print_r($conn->getObject());
-print_r($conn->getObjectArray());
+//print_r($conn->getObjectArray());
+print_r($conn->store($f));
+print_r($conn->load('Natale sul Nilo'));
 
 
 ?>

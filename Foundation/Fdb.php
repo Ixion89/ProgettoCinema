@@ -2,9 +2,10 @@
 class Fdb{
       public $_connection;
       public $_result;
-      public $_table;
-      public $_key;
+      public $_table='film';
+      public $_key='titolo';
       public $_return_class;
+      public $_autoinc=false;
 
       public function __construct() {
              global $config;
@@ -19,9 +20,9 @@ class Fdb{
              if(isset($this->_connection)){
                 $this->_result=$this->_connection->query($query);
                 debug($query);
-                debug($this->_connection->error);
+                debug($this->_connection->errno);
                 if (!$this->_result)
-                   return false;
+                   return 'query fallita';
                 else
                     return true;}
                 else return false;}
@@ -72,6 +73,28 @@ class Fdb{
              $this->_connection->close();
              unset($this->_connection);
              debug('Connessione al db chiusa');}
+
+      public function store($object){
+             $i=0;
+             $values=$fields='';
+             foreach ($object as $key=>$value){
+                     if (!($this->_autoinc && $key==$this->_key) && substr($key,0,2)!='a_'){
+                        if ($i==0){
+                           $fields.=$key;
+                           $values.='\''.$value.'\'';}
+                        else {
+                             $fields.=','.$key;
+                             $values.=',\''.$value.'\'';}
+                        $i++;}
+                     }
+             $query='INSERT INTO '.$this->_table.' ('.$fields.') VALUES ('.$values.')';
+             $return=$this->query($query);
+             return $return;}
+             
+      public function load($key){
+             $query='SELECT * FROM '.$this->_table.' WHERE '.$this->_key.'=\''.$key.'\'';
+             $this->query($query);
+             return $this->getObject();}
                  
 }
 ?>

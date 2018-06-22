@@ -4,8 +4,8 @@ class EFilm {
       public $regista;
       public $anno;
       public $durata;      //da valutare in minuti
-      public $generi;     //array formattato in stringa su db
-      public $cast;       //array
+      public $a_generi;     //array formattato in stringa su db
+      public $a_cast;       //array
       public $casaproduzione;
       
       public function __construct (){}
@@ -22,20 +22,20 @@ class EFilm {
       public function get_regista(){return $this->regista;}
       public function get_anno(){return $this->anno;}
       public function get_durata(){return $this->durata;}
-      public function get_generi(){return $this->generi;}
-      public function get_cast(){return $this->cast;}
+      public function get_generi(){return $this->a_generi;}
+      public function get_cast(){return $this->a_cast;}
       public function get_casa_produzione(){return $this->casaproduzione;}
       
       public function set_titolo(string $valore){$this->titolo=$valore;}
       public function set_anno(int $valore){$this->anno=$valore;}
       public function set_regista(string $valore){$this->regista=$valore;}
       public function set_durata(int $valore){$this->durata=$valore;}
-      public function set_generi(array $valore){$this->generi=$valore;}
-      public function set_cast(array $valore){$this->cast=$valore;}
-      public function set_casa_produzione(string $valore){$this->casa_produzione=$valore;}
+      public function set_generi(array $valore){$this->a_generi=$valore;}
+      public function set_cast(array $valore){$this->a_cast=$valore;}
+      public function set_casa_produzione(string $valore){$this->casaproduzione=$valore;}
       
-      public function add_genere(string $g){$this->generi[]=$g;}
-      public function add_attore_cast(string $a){$this->cast[]=$a;}
+      public function add_genere(string $g){$this->a_generi[]=$g;}
+      public function add_attore_cast(string $a){$this->a_cast[]=$a;}
 }
 
 ?>
