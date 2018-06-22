@@ -8,14 +8,11 @@ class Fdb{
 
       public function __construct() {
              global $config;
-             if (!isset($this->_connection)){
-                $this->_connection=new mysqli($config['mysql']['host'], $config['mysql']['user'], $config['mysql']['password'], $config['mysql']['db']);
-                 if ($this->_connection->connect_errno) {
+             $this->_connection=new mysqli($config['mysql']['host'], $config['mysql']['user'], $config['mysql']['password'], $config['mysql']['db']);
+             if ($this->_connection->connect_errno) {
                    die('Impossibile connettersi al database: ' . $this->_connection->error);
                     }
-                     debug('Connessione al db riuscita');}
-             else  {return $this->_connection;}
-      
+             debug('Connessione al db riuscita');
       }
       
       public function query($query){

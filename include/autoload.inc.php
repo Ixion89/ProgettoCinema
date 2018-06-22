@@ -9,6 +9,8 @@ function __autoload($classname){
                      require_once ('Entity/'.$classname.'.php');break;
                 case 'F':
                      require_once ('Foundation/'.$classname.'.php');break;
+                case 'U':
+                     require_once ('Utility/'.$classname.'.php');break;
                      }
          }
 ?>
