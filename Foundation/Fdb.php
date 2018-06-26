@@ -118,6 +118,29 @@ class Fdb{
         $arrayObj=get_object_vars($object);
         $query='UPDATE '.$this->_table.' SET '.$fields.' WHERE '.$this->_key.' = \''.$arrayObj[$this->_key].'\'';
         return $this->query($query);}
+
+    public function search($parameters = array()/*, $ordinamento*/)
+    {
+        $filtro = '';
+        for ($i = 0; $i <count($parameters); $i++) {
+            if ($i > 0) {
+                $filtro .= ' AND'.$parameters[$i];
+
+            } else {
+                $filtro .= ' ' . $parameters[$i];
+            }
+            $query = 'SELECT * ' . 'FROM ' . $this->_table . ' ';
+
+            if ($filtro != '')
+                $query .= 'WHERE '. $filtro . ' ';
+            /* if ($ordinamento != '')
+                 $query .= 'ORDER BY ' . $ordinamento . ' ';
+             if ($limit != '')
+                 $query .= 'LIMIT ' . $limit . ' ';  */
+            $this->query($query);
+            return $this->getObjectArray();
+        }
+    }
                  
 }
 ?>

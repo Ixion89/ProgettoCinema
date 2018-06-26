@@ -90,7 +90,8 @@ $f->set_anno(1961);
 $conn->update($f);
 
 $prova->set_anno(2000);
-$conn->update($prova);
+$parameters=array('titolo= \'natale sul nilo\'');
+print_r($conn->search($parameters));
 
 
 ?>
