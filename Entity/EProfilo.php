@@ -9,12 +9,12 @@ class EProfilo{
 		public $indirizzo;
 		public $citta;
 		public $telefono;
-		public $listasconti;
+		public $a_listasconti;
 
 public function __construct(){}
 public function costruttore (ECredenziale $CC, array $Sconti){
 	$this->set_cartacredito($CC);
-	$this->listasconti=$Sconti;
+	$this->a_listasconti=$Sconti;
 }
 public function get_nome(){return $this->nome;}
 public function set_nome(string $valore){$this->nome=$valore;}
@@ -28,8 +28,8 @@ public function get_citta(){return $this->citta;}
 public function set_citta(string $valore){$this->citta=$valore;}
 public function get_telefono (){return $this->telefono;}
 public function set_telegono(string $valore){$this->telefono=telefono;}
-public function get_listasconti(){return $this->listasconti;}
-public function set_listasconti (array $valore){$this->listasconti=$valore;}
+public function get_listasconti(){return $this->a_listasconti;}
+public function set_listasconti (array $valore){$this->a_listasconti=$valore;}
 
 
 
