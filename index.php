@@ -78,7 +78,19 @@ $conn=new Fdb();
 //print_r($conn->getObject());
 //print_r($conn->getObjectArray());
 print_r($conn->store($f));
-print_r($conn->load('Natale sul Nilo'));
+$prova=$conn->load('Natale sul Nilo');
+print_r($prova);
+$prova->set_generi(explode(',',$prova->generi));
+unset ($prova->generi);
+print_r($prova);
+$f3=new EFilm();
+$f3->set_titolo('Madagascar');
+$conn->delete($f3);
+$f->set_anno(1961);
+$conn->update($f);
+
+$prova->set_anno(2000);
+$conn->update($prova);
 
 
 ?>

@@ -95,6 +95,29 @@ class Fdb{
              $query='SELECT * FROM '.$this->_table.' WHERE '.$this->_key.'=\''.$key.'\'';
              $this->query($query);
              return $this->getObject();}
+             
+      public function delete(& $object){
+             $arrayObj=get_object_vars($object);
+             $query='DELETE FROM '.$this->_table.' WHERE '.$this->_key.' = \''.$arrayObj[$this->_key].'\'';
+             unset ($object);
+             return $this->query($query);}
+             
+      public function update($object) {
+        $i=0;
+        $fields='';
+        foreach ($object as $key=>$value) {
+            if (!($this->_autoinc && $key==$this->_key) && substr($key,0,2)!='a_') {
+                if ($i==0) {
+                    $fields.='`'.$key.'` = \''.$value.'\'';
+                } else {
+                    $fields.=', `'.$key.'` = \''.$value.'\'';
+                }
+                $i++;
+            }
+        }
+        $arrayObj=get_object_vars($object);
+        $query='UPDATE '.$this->_table.' SET '.$fields.' WHERE '.$this->_key.' = \''.$arrayObj[$this->_key].'\'';
+        return $this->query($query);}
                  
 }
 ?>
