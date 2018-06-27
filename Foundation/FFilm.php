@@ -17,10 +17,34 @@ class FFilm extends Fdb{
              return explode(',',$s);}
              
       public function store($film){
-             Fdb::store($film);/*
-             $query='INSERT INTO film (generi,cast) VALUES (\''.$this->convert_to_string($film->get_generi()).'\',\''.$this->convert_to_string($film->get_cast()).'\') WHERE titolo=\''.$film->get_titolo().'\';';
+             if(Fdb::store($film)){;
+             $query='UPDATE film SET generi=\''.$this->convert_to_string($film->get_generi()).'\', cast=\''.$this->convert_to_string($film->get_cast()).'\' WHERE titolo=\''.$film->get_titolo().'\';';
              debug($query);
-             $this->query($query);*/}
+             return $this->query($query);}
+             }
+             
+      public function load($key){
+             $res=Fdb::load($key);
+             $res->set_generi($this->convert_to_array($res->generi));
+             $res->set_cast($this->convert_to_array($res->cast));
+             unset($res->generi);unset($res->cast);
+             return $res;}
+             
+      public function update($film){
+             $res=Fdb::update($film);
+             $query='UPDATE film SET generi=\''.$this->convert_to_string($film->get_generi()).'\', cast=\''.$this->convert_to_string($film->get_cast()).'\' WHERE titolo=\''.$film->get_titolo().'\';';
+             debug($query);
+             $res=$res&&$this->query($query);
+             return $res;}
+             
+      public function search($parameters = array()){
+            //& for ($j=0; $j<count($parameters)
+             $res=Fdb::search($parameters);
+             for ($i=0; $i<count($res);$i++){
+                 $res[$i]->set_generi($this->convert_to_array($res[$i]->generi));
+                 $res[$i]->set_cast($this->convert_to_array($res[$i]->cast));
+                 unset($res[$i]->generi);unset($res[$i]->cast);}
+             return $res;}
 }
 
 ?>
