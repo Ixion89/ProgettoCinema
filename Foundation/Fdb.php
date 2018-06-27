@@ -16,6 +16,9 @@ class Fdb{
              debug('Connessione al db riuscita');
       }
       
+      public function get_connection(){
+             return $this->_connection;}
+      
       public function query($query){
              if(isset($this->_connection)){
                 $this->_result=$this->_connection->query($query);
