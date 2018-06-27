@@ -68,6 +68,9 @@ $biglietto=$pag->crea_biglietto();
 //$biglietto->stampa_biglietto(); */
 
 $conn=new Fdb();
+$connf=new FFilm();
+print_r($conn);
+print_r($connf);
 //print($conn->query('SELECT * FROM Film'));
 //print_r($conn->getArrayAss());
 //print_r($conn->getObject());
@@ -77,7 +80,7 @@ $conn=new Fdb();
 //print_r($conn->getArrayAss());
 //print_r($conn->getObject());
 //print_r($conn->getObjectArray());
-print_r($conn->store($f));
+print_r($connf->store($f));/*
 $prova=$conn->load('Natale sul Nilo');
 print_r($prova);
 $prova->set_generi(explode(',',$prova->generi));
@@ -87,11 +90,11 @@ $f3=new EFilm();
 $f3->set_titolo('Madagascar');
 $conn->delete($f3);
 $f->set_anno(1961);
-$conn->update($f);
+$conn->update($f); */
 
-$prova->set_anno(2000);
+/*$prova->set_anno(2000);
 $parameters=array('titolo= \'natale sul nilo\'');
-print_r($conn->search($parameters));
+print_r($conn->search($parameters)); */
 
 
 ?>
