@@ -2,8 +2,8 @@
 class Fdb{
       public $_connection;
       public $_result;
-      public $_table='film';
-      public $_key='titolo';
+      public $_table;
+      public $_key;
       public $_return_class;
       public $_autoinc=false;
 
@@ -25,7 +25,7 @@ class Fdb{
                 debug($query);
                 debug($this->_connection->errno);
                 if (!$this->_result)
-                   return 'query fallita';
+                   return false;
                 else
                     return true;}
                 else return false;}
@@ -50,7 +50,7 @@ class Fdb{
              $numero_righe=$this->_result->num_rows;
              debug('Numero risultati:'. $numero_righe);
              if ($numero_righe>0) {
-                $row = $this->_result->fetch_object('EFilm'/*$this->_return_class*/);
+                $row = $this->_result->fetch_object($this->_return_class);
                 $this->_result=false;
                 return $row;}
                 }
@@ -63,7 +63,7 @@ class Fdb{
         debug('Numero risultati:'. $numero_righe);
         if ($numero_righe>0) {
             $return=array();
-            while ($row = $this->_result->fetch_object('EFilm'/*$this->_return_class*/)) {
+            while ($row = $this->_result->fetch_object($this->_return_class)) {
                 $return[]=$row;
             }
             $this->_result=false;
