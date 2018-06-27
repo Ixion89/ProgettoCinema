@@ -16,7 +16,18 @@ class EFilm {
              $this->set_durata($d);
              $this->set_generi($g);
              $this->set_cast($c);
-             $this->set_casa_produzione($p);}
+             $this->set_casa_produzione($p);
+             }
+
+      public function save(){
+             $conn=new FFilm();
+             $cerca=array('titolo = \''.$this->get_titolo().'\'');
+             $res=$conn->search($cerca);
+             if ($conn->store($this)){}
+             else {$conn->update($this);}}
+      public function get_film(string $titolo){
+             $conn=new FFilm();
+             return $conn->load($titolo);}
              
       public function get_titolo(){return $this->titolo;}
       public function get_regista(){return $this->regista;}

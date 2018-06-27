@@ -11,9 +11,9 @@ $config['mysql']['db']='cinemadb';
 function debug($var){
          global $config;
          if ($config['debug']){
-            echo '<pre>';
+            echo "<pre>";
             print_r($var);
-            echo '</pre>';
+            echo "</pre>\n";
             }
          }
 ?>

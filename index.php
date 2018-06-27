@@ -67,9 +67,9 @@ $pag->pagamento();
 $biglietto=$pag->crea_biglietto();
 //$biglietto->stampa_biglietto(); */
 
-$conn=new Fdb();
+//$conn=new Fdb();
 $connf=new FFilm();
-print_r($conn);
+//print_r($conn);
 print_r($connf);
 //print($conn->query('SELECT * FROM Film'));
 //print_r($conn->getArrayAss());
@@ -80,8 +80,8 @@ print_r($connf);
 //print_r($conn->getArrayAss());
 //print_r($conn->getObject());
 //print_r($conn->getObjectArray());
-print_r($connf->store($f));/*
-$prova=$conn->load('Natale sul Nilo');
+print_r($connf->store($f));
+/*$prova=$conn->load('Natale sul Nilo');
 print_r($prova);
 $prova->set_generi(explode(',',$prova->generi));
 unset ($prova->generi);
@@ -92,9 +92,13 @@ $conn->delete($f3);
 $f->set_anno(1961);
 $conn->update($f); */
 
-/*$prova->set_anno(2000);
-$parameters=array('titolo= \'natale sul nilo\'');
-print_r($conn->search($parameters)); */
+//print_r($connf->load('Dracula 2'));
+/*$f->add_genere('Commedia');
+$f->set_casa_produzione('New Castle');
+$connf->update($f);  */
+
+//$ricerca=array('generi LIKE \'%Horror%\'');
+//print_r($connf->search($ricerca));
 
 
 ?>
