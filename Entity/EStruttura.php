@@ -4,7 +4,7 @@ class EStruttura {
       public $indirizzo;
       public $telefono;
       public $email;
-      public $orariapertura;  //array con 2 stringhe
+      public $a_orariapertura;  //array con 2 stringhe
       public $a_listasale;      //array
       
       public function __construct(){
@@ -21,14 +21,14 @@ class EStruttura {
       public function get_indirizzo(){return $this->indirizzo;}
       public function get_telefono(){return $this->telefono;}
       public function get_email(){return $this->email;}
-      public function get_orari_apertura(){return $this->orari_apertura;}
+      public function get_orari_apertura(){return $this->a_orari_apertura;}
       public function get_lista_sale(){return $this->a_lista_sale;}
       
       public function set_nome(string $valore){$this->nome=$valore;}
       public function set_indirizzo(string $valore){$this->indirizzo=$valore;}
       public function set_telefono(string $valore){$this->telefono=$valore;}
       public function set_email(string $valore){$this->email=$valore;}
-      public function set_orari_apertura(array $valore){$this->orari_apertura=$valore;}
+      public function set_orari_apertura(array $valore){$this->a_orari_apertura=$valore;}
       public function set_lista_sale(array $valore){$this->a_lista_sale=$valore;}
       
       public function add_sala(ESala $valore){$this->a_lista_sale[]=$valore;}
