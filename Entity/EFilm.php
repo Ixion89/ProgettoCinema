@@ -25,6 +25,9 @@ class EFilm {
              $res=$conn->search($cerca);
              if ($conn->store($this)){}
              else {$conn->update($this);}}
+      public function delete(){
+             $conn=new FFilm();
+             $conn->delete($this);}
       public function get_film(string $titolo){
              $conn=new FFilm();
              return $conn->load($titolo);}
