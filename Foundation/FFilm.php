@@ -32,7 +32,6 @@ class FFilm extends Fdb{
       public function update($film){
              $res=Fdb::update($film);
              $query='UPDATE film SET generi=\''.$this->convert_to_string($film->get_generi()).'\', cast=\''.$this->convert_to_string($film->get_cast()).'\' WHERE titolo=\''.$film->get_titolo().'\';';
-             debug($query);
              $res=$res&&$this->query($query);
              return $res;}
              

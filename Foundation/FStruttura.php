@@ -1,46 +1,50 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Teresa
- * Date: 27/06/2018
- * Time: 18:17
- */
-require_once 'C:\xampp\htdocs\_progetto\Foundation\Fdb.php';
 class FStruttura extends  Fdb{
 
-    public function __construct(){
-        $this->_table='struttura';
-        $this->_key='idregistrazione';
-        $this->_return_class='EStruttura';
-        $this->_connection=USingleton::getInstance("Fdb")->get_connection();
-    }
+      public function __construct(){
+             $this->_table='struttura';
+             $this->_key='idfiliale';
+             $this->_return_class='EStruttura';
+             $this->_connection=USingleton::getInstance("Fdb")->get_connection();}
 
-    public function convert_to_string(array $a){
-        $ret='';
-        for ($i=0;$i<count($a);$i++){
-            if($i==0) $ret.=$a[$i];
-            else $ret.=','.$a[$i];}
-        return $ret;}
+      public function sale_to_string(array $a){
+             $ret='';
+             for ($i=0;$i<count($a);$i++){
+                 if($i==0) $ret.=$a[$i]->get_nome();
+                 else $ret.=','.$a[$i]->get_nome();}
+             return $ret;}
+      public function nomi_to_array(string $s){
+             $nomi=explode(',',$s);
+             for ($i=0;$i<count($nomi);$i++){
+                $nomi[$i]=ESala::get_sala($nomi[$i]);}
+             return $nomi;}
 
-
-        public function convert_to_array(string $s){
-        return explode(',',$s);}
-
-        public function store ($struttura){
+      public function store($struttura){
             if(Fdb::store($struttura)){
-                $query='UPDATE struttura SET orariapertura=\''.$this->convert_to_string($struttura->get_orari_apertura()).'\'';
-                debug($query);
-                return $this->query($query);
+                $query='UPDATE struttura SET listasale=\''.$this->sale_to_string($struttura->get_listasale()).'\' WHERE Idfiliale=\''.$struttura->get_idfiliale().'\';';
+                return $this->query($query);}
             }
-        }
 
-        public function load($key){
+      public function load($key){
             $res=Fdb::load($key);
-            $res->set_orari_apertura($this->convert_to_array($res->orariapertura));
-            //$res->set_lista_sale($this->convert_to_array($res->)) ritorna tt le sale che hanno l'id di qst struttura;
-            unset($res->orariapertura);  //fare poi anche di listasale
+            $res->set_listasale($this->nomi_to_array($res->listasale));
+            unset($res->listasale);
             return $res;
-        }
+            }
+            
+      public function update($struttura){
+             $res=Fdb::update($struttura);
+             $query='UPDATE struttura SET listasale=\''.$this->sale_to_string($struttura->get_listasale()).'\' WHERE idfiliale=\''.$struttura->get_idfiliale().'\';';
+             $res=$res&&$this->query($query);
+             return $res;}
+
+      public function search($parameters = array()){
+            //& for ($j=0; $j<count($parameters)
+             $res=Fdb::search($parameters);
+             if ($res){for ($i=0; $i<count($res);$i++){
+                 $res[$i]->set_listasale($this->nomi_to_array($res[$i]->listasale));
+                 unset($res[$i]->listasale);} }
+             return $res;}
 
 
 

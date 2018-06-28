@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Giu 28, 2018 alle 16:58
+-- Creato il: Giu 28, 2018 alle 17:29
 -- Versione del server: 10.1.30-MariaDB
 -- Versione PHP: 7.2.2
 
@@ -67,6 +67,30 @@ INSERT INTO `sala` (`nomesala`, `numeroposti`) VALUES
 ('Maestrale', 80),
 ('Zefiro', 50);
 
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `struttura`
+--
+
+CREATE TABLE `struttura` (
+  `idfiliale` char(5) NOT NULL,
+  `indirizzo` char(100) NOT NULL,
+  `nome` char(20) NOT NULL,
+  `telefono` char(12) NOT NULL,
+  `email` char(30) NOT NULL,
+  `orariapertura` text NOT NULL,
+  `idregistrazione` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `struttura`
+--
+
+INSERT INTO `struttura` (`idfiliale`, `indirizzo`, `nome`, `telefono`, `email`, `orariapertura`, `idregistrazione`) VALUES
+('F0001', 'Via Roma 34, L\'Aquila', 'AstraAQ', '0862111111', 'astraaq@gmail.com', 'lunedì,16:00,22:00;martedì,16:00,22:00;mercoledì,16:00,22:00;giovedì,16:00,22:00;venerdì,16:00,22:00;sabato,11:00,24:00;domenica,11:00,24:00', 1),
+('F0002', 'Via Milano 85, Avezzano', 'AstraAZ', '0863222222', 'astraaz@yahoo.it', 'lunedì,16:00,22:00;martedì,16:00,22:00;mercoledì,16:00,22:00;giovedì,16:00,22:00;venerdì,16:00,22:00;sabato,11:00,24:00;domenica,11:00,24:00', 2);
+
 --
 -- Indici per le tabelle scaricate
 --
@@ -82,6 +106,12 @@ ALTER TABLE `film`
 --
 ALTER TABLE `sala`
   ADD PRIMARY KEY (`nomesala`);
+
+--
+-- Indici per le tabelle `struttura`
+--
+ALTER TABLE `struttura`
+  ADD PRIMARY KEY (`idfiliale`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

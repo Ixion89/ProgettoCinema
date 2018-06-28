@@ -1,0 +1,1 @@
+Nella tabella struttura va inserita come chiave secondaria idregistrazione che fa riferimento alla tabella registrazione
