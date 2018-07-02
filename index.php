@@ -2,8 +2,8 @@
 require_once 'include/autoload.inc.php';
 require_once 'include/config.inc.php';
          
-/*$s=new ESala('Aurora',40,'Anfiteatro');
-var_dump($s);
+$s=new ESala('Aurora',40,'Anfiteatro');
+/*var_dump($s);
 $s->set_nome('Venere');
 var_dump($s);
 echo ('Il nome della sala e:'.$s->get_nome()); */
@@ -38,18 +38,19 @@ $f->set_titolo('Dracula 2');
 $p->costruttore('a',19,true);
 print_r($p);  */
 
-/*$m=new EMappa();
-//print_r($m);
+$m=new EMappa();
 $m->costruttore(3,4,'quadrangolare');
 $m->delete_posti("B",2,3);
 $m->delete_posti("B",1,3);
 //print_r($m);
 
 $p=EProiezione::costruttore($f,$s,'13-06-2018','12,00',$m,"3");
-$p1=EProiezione::costruttore($f,$s1,'14-06-2018','13,00',$m,"2");
+//$p1=EProiezione::costruttore($f,$s1,'14-06-2018','13,00',$m,"2");
 //print_r($p);
+print_r($p);
+print ($p->get_id());
 
-$x=$m->get_schema();
+/*$x=$m->get_schema();
 $i[]=EItem::costruttore($p,$x['A'][1]);
 $i[]=EItem::costruttore($p1,$x['C'][2]);
 $i[0]->sconta_valore(2);
@@ -68,9 +69,9 @@ $biglietto=$pag->crea_biglietto();
 //$biglietto->stampa_biglietto(); */
 
 //$conn=new Fdb();
-$connf=new FFilm();
+//$connf=new FFilm();
 //print_r($conn);
-print_r($connf);
+//print_r($connf);
 //print($conn->query('SELECT * FROM Film'));
 //print_r($conn->getArrayAss());
 //print_r($conn->getObject());
@@ -80,7 +81,7 @@ print_r($connf);
 //print_r($conn->getArrayAss());
 //print_r($conn->getObject());
 //print_r($conn->getObjectArray());
-print_r($connf->store($f));
+//print_r($connf->store($f));
 /*$prova=$conn->load('Natale sul Nilo');
 print_r($prova);
 $prova->set_generi(explode(',',$prova->generi));

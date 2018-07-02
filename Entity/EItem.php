@@ -23,7 +23,7 @@ class EItem {
              $this->valore=$valore;}
       
       public function crea_nome(EProiezione $pr, EPosto $p){
-             $x=$pr->get_id().'#'.$p->get_fila().$p->get_numero();
+             $x=$pr->get_id().'#'.$p->get_fila().'#'.$p->get_numero();
              return $x;}
       public function sconta_valore(float $s){
              $w=$this->get_valore();

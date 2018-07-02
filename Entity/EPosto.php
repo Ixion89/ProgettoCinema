@@ -5,7 +5,7 @@ class EPosto{
       public $occupato;
 
       public function __construct(){}
-      public function costruttore(string $f, int $nr, bool $o){
+      public function costruttore(string $f, int $nr, int $o){
       $this->set_fila($f);
       $this->set_numero($nr);
       $this->set_occupato($o);}
@@ -16,6 +16,6 @@ class EPosto{
       
       public function set_fila(string $valore){$this->fila=$valore;}
       public function set_numero(int $valore){$this->numero=$valore;}
-      public function set_occupato(bool $valore){$this->occupato=$valore;}
+      public function set_occupato(int $valore){$this->occupato=$valore;}
 }
 ?>

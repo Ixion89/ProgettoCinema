@@ -19,6 +19,19 @@ class EStruttura {
              $this->set_orariapertura($e);
              $this->set_listasale($f);}
              
+      public function save(){
+             $conn=new FStruttura();
+             $cerca=array('idfiliale = \''.$this->get_idfiliale().'\'');
+             $res=$conn->search($cerca);
+             if ($conn->store($this)){}
+             else {$conn->update($this);}}
+      public function delete(){
+             $conn=new FStruttura();
+             $conn->delete($this);}
+      public function get_struttura(string $idfiliale){
+             $conn=new FStruttura();
+             return $conn->load($idfiliale);}
+             
       public function get_idfiliale(){return $this->idfiliale;}
       public function get_nome(){return $this->nome;}
       public function get_indirizzo(){return $this->indirizzo;}

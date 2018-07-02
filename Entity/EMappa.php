@@ -16,7 +16,7 @@ class EMappa{
              while ($i<=$f)
                  {for ($j=1;$j<=$p;$j++)
                      {$x=new EPosto();
-                     $x->costruttore($val,$j,false);
+                     $x->costruttore($val,$j,0);
                      $s[$val][$j]= $x;}
                  $val++;
                  $i++;
