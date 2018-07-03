@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Giu 28, 2018 alle 17:29
+-- Creato il: Lug 03, 2018 alle 15:19
 -- Versione del server: 10.1.30-MariaDB
 -- Versione PHP: 7.2.2
 
@@ -50,6 +50,27 @@ INSERT INTO `film` (`titolo`, `regista`, `anno`, `durata`, `generi`, `cast`, `ca
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `proiezione`
+--
+
+CREATE TABLE `proiezione` (
+  `idProiezione` char(30) NOT NULL,
+  `film` char(70) NOT NULL,
+  `mappaproiezione` char(70) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `proiezione`
+--
+
+INSERT INTO `proiezione` (`idProiezione`, `film`, `mappaproiezione`) VALUES
+('180715#Aurora#13.00#2', 'Madagascar', 'A-1-0#A-2-0#A-3-0#A-4-0#A-5-0#A-6-0#A-7-0#A-8-0#A-9-0#A-10-0#B-1-0#B-2'),
+('180717#Aurora#18.00#2', 'Natale sul Nilo', 'A-1-0#A-2-0#A-3-0#A-4-0#A-5-0#B-1-0#B-2-0#B-3-0#B-4-0#B-5-0#C-1-0#C-2-'),
+('180720#Zefiro#20.00#3', 'Madagascar', 'A-1-0#A-2-0#A-3-0#A-4-0#A-5-0#B-1-0#B-2-0#B-3-0#B-4-0#B-5-0#C-1-0#C-2-');
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `sala`
 --
 
@@ -80,6 +101,7 @@ CREATE TABLE `struttura` (
   `telefono` char(12) NOT NULL,
   `email` char(30) NOT NULL,
   `orariapertura` text NOT NULL,
+  `listasale` text NOT NULL,
   `idregistrazione` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -87,9 +109,9 @@ CREATE TABLE `struttura` (
 -- Dump dei dati per la tabella `struttura`
 --
 
-INSERT INTO `struttura` (`idfiliale`, `indirizzo`, `nome`, `telefono`, `email`, `orariapertura`, `idregistrazione`) VALUES
-('F0001', 'Via Roma 34, L\'Aquila', 'AstraAQ', '0862111111', 'astraaq@gmail.com', 'lunedì,16:00,22:00;martedì,16:00,22:00;mercoledì,16:00,22:00;giovedì,16:00,22:00;venerdì,16:00,22:00;sabato,11:00,24:00;domenica,11:00,24:00', 1),
-('F0002', 'Via Milano 85, Avezzano', 'AstraAZ', '0863222222', 'astraaz@yahoo.it', 'lunedì,16:00,22:00;martedì,16:00,22:00;mercoledì,16:00,22:00;giovedì,16:00,22:00;venerdì,16:00,22:00;sabato,11:00,24:00;domenica,11:00,24:00', 2);
+INSERT INTO `struttura` (`idfiliale`, `indirizzo`, `nome`, `telefono`, `email`, `orariapertura`, `listasale`, `idregistrazione`) VALUES
+('F0001', 'Via Roma 34, L\'Aquila', 'AstraAQ', '0862111111', 'astraaq@gmail.com', 'Dal Lunedì Al Martedì 16:00 - 22:00\r\nSabato e Domenica 10:00 - 24:00', 'Zefiro,Aurora', 1),
+('F0002', 'Via Milano 85, Avezzano', 'AstraAZ', '0863222222', 'astraaz@yahoo.it', 'Dal Lunedì Al Martedì 16:00 - 22:00\r\nSabato e Domenica 10:00 - 24:00', 'Maestrale,Zefiro', 2);
 
 --
 -- Indici per le tabelle scaricate
@@ -100,6 +122,12 @@ INSERT INTO `struttura` (`idfiliale`, `indirizzo`, `nome`, `telefono`, `email`, 
 --
 ALTER TABLE `film`
   ADD PRIMARY KEY (`titolo`);
+
+--
+-- Indici per le tabelle `proiezione`
+--
+ALTER TABLE `proiezione`
+  ADD PRIMARY KEY (`idProiezione`);
 
 --
 -- Indici per le tabelle `sala`

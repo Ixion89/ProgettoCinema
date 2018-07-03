@@ -37,10 +37,26 @@ class FProiezione extends Fdb{
             $res->extract();
             $res->set_film(EFilm::get_film($res->film)); unset ($res->film);
             $m=new EMappa(); $m->set_schema(FProiezione::string_to_mappa($res->mappaproiezione));
-            print_r($m);
             $res->set_mappa_pro($m); unset ($res->mappaproiezione);
             return $res;
             }
+            
+      public function update($proiezione){
+             $res=Fdb::update($proiezione);
+             $query='UPDATE proiezione SET mappaproiezione=\''.$this->mappa_to_string($proiezione->get_mappa_pro()).'\' WHERE IdProiezione=\''.$proiezione->get_id().'\';';
+             $query2='UPDATE proiezione SET film=\''.$proiezione->get_film()->get_titolo().'\' WHERE IdProiezione=\''.$proiezione->get_id().'\';';
+             $res=$res&&$this->query($query)&&$this->query($query2);
+             return $res;}
+             
+      public function search($parameters = array()){
+            //& for ($j=0; $j<count($parameters)
+             $res=Fdb::search($parameters);
+             if ($res){for ($i=0; $i<count($res);$i++){
+                 $res[$i]->extract();
+                 $res[$i]->set_film(EFilm::get_film($res[$i]->film)); unset ($res[$i]->film);
+                 $m=new EMappa(); $m->set_schema(FProiezione::string_to_mappa($res[$i]->mappaproiezione));
+                 $res[$i]->set_mappa_pro($m); unset ($res[$i]->mappaproiezione);} }
+             return $res;}
 }
 
 ?>

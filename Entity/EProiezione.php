@@ -20,6 +20,19 @@ class EProiezione{
              $pro->set_id();
              return $pro;}
              
+      public function save(){
+             $conn=new FProiezione();
+             $cerca=array('idProiezione = \''.$this->get_id().'\'');
+             $res=$conn->search($cerca);
+             if ($conn->store($this)){}
+             else {$conn->update($this);}}
+      public function delete(){
+             $conn=new FProiezione();
+             $conn->delete($this);}
+      public function get_proiezione(string $id){
+             $conn=new FProiezione();
+             return $conn->load($id);}
+             
       public function get_film(){return $this->a_film;}
       public function get_sala(){return $this->a_sala;}
       public function get_giorno(){return $this->a_giorno;}
