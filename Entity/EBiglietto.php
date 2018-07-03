@@ -4,10 +4,12 @@ class EBiglietto{
       public $idpagamento;
       public $idbiglietto;
       
-      public function __construct(string $text, string $i, string $idb){
-             $this->riepilogo=$text;
-             $this->idpagamento=$i;
-             $this->idbiglietto=$idb;}
+      public function __construct(){}
+
+    public function costruttore(string $text, string $i, string $idb){
+        $this->riepilogo=$text;
+        $this->idpagamento=$i;
+        $this->idbiglietto=$idb;}
              
       public function get_riepilogo(){return $this->riepilogo;}
       public function get_idbiglietto(){return $this->idbiglietto;}

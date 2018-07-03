@@ -27,7 +27,7 @@ public function set_indirizzo (string $valore){$this->indirizzo=$valore;}
 public function get_citta(){return $this->citta;}
 public function set_citta(string $valore){$this->citta=$valore;}
 public function get_telefono (){return $this->telefono;}
-public function set_telegono(string $valore){$this->telefono=telefono;}
+public function set_telefono(string $valore){$this->telefono=$valore;}
 public function get_listasconti(){return $this->a_listasconti;}
 public function set_listasconti (array $valore){$this->a_listasconti=$valore;}
 

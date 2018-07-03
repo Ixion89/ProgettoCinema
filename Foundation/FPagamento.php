@@ -13,8 +13,15 @@ class FPagamento extends Fdb{
         $this->_key='idpagamento';
         $this->_autoinc=false;
         $this->_return_class='EPagamento';
-        USingleton::getInstance('Fdb');
+        $this->_connection=USingleton::getInstance("Fdb")->get_connection();
     }
+
+    public function store($object){
+        Fdb::store($object);
+
+    }
+
+
 }
 
 

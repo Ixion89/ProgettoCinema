@@ -6,7 +6,8 @@ class EPagamento{
       public $idpagamento;  //string //id di ogni pagamento----> 1 biglietto
       public $a_listaitem;  //array di item
       public $pagato;
-
+      public $idutente;
+      public $idfiliale;
       public function __construct(){}
       public function costruttore(string $p, array $i){
              $x= new EPagamento();
@@ -14,6 +15,7 @@ class EPagamento{
              $x->set_lista_item($i);
              $x->set_totale($x->calcolo_totale());
              $x->set_pagato(false);
+            //$x->set_idutente()
              $c=true;
              while($c){
                        $bytes = random_bytes(3);
@@ -27,16 +29,20 @@ class EPagamento{
 
       public function get_persona(){return $this->persona;}
       public function get_totale(){return $this->totale;}
-      public function get_id(){return $this->IDPagamento;}
+      public function get_id(){return $this->idpagamento;}
       public function get_lista_item(){return $this->a_listaitem;}
       public function get_pagato(){return $this->pagato;}
+      public function get_idfiale(){return $this->idfiliale;}
       
       public function set_persona(string $valore){$this->persona=$valore;}
       public function set_totale(float $valore){$this->totale=$valore;}
-      public function set_id(string $valore){$this->IDPagamento=$valore;}
+      public function set_id(string $valore){$this->idpagamento=$valore;}
       public function set_lista_item(array $valore){$this->a_listaitem=$valore;}
       public function set_pagato(bool $valore){$this->pagato=$valore;}
-      
+      public function set_idfiliale($val){$this->idfiliale=$val;}
+    public function set_idutente($val){$this->idutente=$val;}
+    public function set_idpagamento($val){$this->idpagamento=$val;}
+    public function set_listai_prova($val){$this->a_listaitem=$val;}
       public function calcolo_totale(){
 	         $items=$this->get_lista_item();
 	         $totale=0;
