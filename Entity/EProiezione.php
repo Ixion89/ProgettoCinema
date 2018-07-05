@@ -9,21 +9,19 @@ class EProiezione{
       public $idProiezione;     //l'id contiene data,nome sala, ora e tipo separati da #
       
       public function __construct (){}
-      public function costruttore (EFilm $f, ESala $s, string $g,string $o, EMappa $m, string $t){
+      public function costruttore (EFilm $f, ESala $s, string $g,string $o, string $t){
              $pro=new EProiezione();
              $pro->set_film($f);
              $pro->set_sala($s);
              $pro->set_giorno($g);
              $pro->set_orario($o);
-             $pro->set_mappa_pro($m);
+             $pro->set_mappa_pro(EMappa::get_mappa($s->get_nome()));
              $pro->set_tipo($t);
              $pro->set_id();
              return $pro;}
              
       public function save(){
              $conn=new FProiezione();
-             $cerca=array('idProiezione = \''.$this->get_id().'\'');
-             $res=$conn->search($cerca);
              if ($conn->store($this)){}
              else {$conn->update($this);}}
       public function delete(){

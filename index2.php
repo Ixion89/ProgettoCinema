@@ -13,9 +13,18 @@ $f1=EFilm::get_film('Natale sul Nilo');
 $s1=ESala::get_sala('Aurora');
 $s2=ESala::get_sala('Zefiro');
 $m=new EMappa();
-$m->costruttore(10,5);
+$m->costruttore(5,4,'Aurora');
 //$m->delete_posti("B",2,3);
 //$m->delete_posti("B",1,3);
+//$conn=new FMappa();
+//$conn->store($m);
+//print_r($conn->load('Aurora'));
+//$m->costruttore(5,5,'Zefiro');
+//$conn->update($m);
+//$parameter=array('modello LIKE \'%F-5%\'');
+//print_r($conn->search($parameter));
+//$m->save();
+//print_r(EMappa::get_mappa('Maestrale'));
 
 $s=new ESala();
 /*$s->costruttore('Aurora',50);
@@ -37,7 +46,7 @@ $st->delete();
 print_r(EStruttura::get_struttura('F0001'));*/
 
 //$pro=new EProiezione();
-$pro=EProiezione::costruttore($f,$s2,'20-07-2018','20.00',$m,'3');
+$pro=EProiezione::costruttore($f1,$s1,'15-07-2018','16.00','2');
 //$conn=new FProiezione();
 //$m->delete_posti("A",1,2);
 //$pro->set_mappa_pro($m);
@@ -49,5 +58,6 @@ $pro=EProiezione::costruttore($f,$s2,'20-07-2018','20.00',$m,'3');
 //print_r($conn->search($parameter));
 $pro->save();
 //print_r(EProiezione::get_proiezione('180710#Aurora#13.00#3'));
+
 
 ?>

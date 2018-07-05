@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Lug 03, 2018 alle 15:19
+-- Creato il: Lug 05, 2018 alle 15:54
 -- Versione del server: 10.1.30-MariaDB
 -- Versione PHP: 7.2.2
 
@@ -50,13 +50,35 @@ INSERT INTO `film` (`titolo`, `regista`, `anno`, `durata`, `generi`, `cast`, `ca
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `mappa`
+--
+
+CREATE TABLE `mappa` (
+  `nomeschema` char(15) NOT NULL,
+  `modello` text NOT NULL,
+  `numero_file` int(3) NOT NULL,
+  `numero_posti` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `mappa`
+--
+
+INSERT INTO `mappa` (`nomeschema`, `modello`, `numero_file`, `numero_posti`) VALUES
+('Aurora', 'A-1-0#A-2-0#A-3-0#A-4-0#B-1-0#B-2-0#B-3-0#B-4-0#C-1-0#C-2-0#C-3-0#C-4-0#D-1-0#D-2-0#D-3-0#D-4-0#E-1-0#E-2-0#E-3-0#E-4-0#', 5, 4),
+('Maestrale', 'A-1-0#A-2-0#A-3-0#A-4-0#A-5-0#B-1-0#B-2-0#B-3-0#B-4-0#B-5-0#C-1-0#C-2-0#C-3-0#C-4-0#C-5-0#', 3, 5),
+('Zefiro', 'A-1-0#A-2-0#A-3-0#A-4-0#A-5-0#B-1-0#B-2-0#B-3-0#B-4-0#B-5-0#C-1-0#C-2-0#C-3-0#C-4-0#C-5-0#D-1-0#D-2-0#D-3-0#D-4-0#D-5-0#E-1-0#E-2-0#E-3-0#E-4-0#E-5-0#F-1-0#F-2-0#F-3-0#F-4-0#F-5-0#', 6, 5);
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `proiezione`
 --
 
 CREATE TABLE `proiezione` (
   `idProiezione` char(30) NOT NULL,
   `film` char(70) NOT NULL,
-  `mappaproiezione` char(70) NOT NULL
+  `mappaproiezione` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -64,9 +86,9 @@ CREATE TABLE `proiezione` (
 --
 
 INSERT INTO `proiezione` (`idProiezione`, `film`, `mappaproiezione`) VALUES
-('180715#Aurora#13.00#2', 'Madagascar', 'A-1-0#A-2-0#A-3-0#A-4-0#A-5-0#A-6-0#A-7-0#A-8-0#A-9-0#A-10-0#B-1-0#B-2'),
-('180717#Aurora#18.00#2', 'Natale sul Nilo', 'A-1-0#A-2-0#A-3-0#A-4-0#A-5-0#B-1-0#B-2-0#B-3-0#B-4-0#B-5-0#C-1-0#C-2-'),
-('180720#Zefiro#20.00#3', 'Madagascar', 'A-1-0#A-2-0#A-3-0#A-4-0#A-5-0#B-1-0#B-2-0#B-3-0#B-4-0#B-5-0#C-1-0#C-2-');
+('180715#Aurora#16.00#2', 'Natale sul Nilo', 'A-1-0#A-2-0#A-3-0#A-4-0#B-1-0#B-2-0#B-3-0#B-4-0#C-1-0#C-2-0#C-3-0#C-4-0#D-1-0#D-2-0#D-3-0#D-4-0#E-1-0#E-2-0#E-3-0#E-4-0#'),
+('180718#Zefiro#20.00#3', 'Madagascar', 'A-1-0#A-2-0#A-3-0#A-4-0#A-5-0#B-1-0#B-2-0#B-3-0#B-4-0#B-5-0#C-1-0#C-2-0#C-3-0#C-4-0#C-5-0#D-1-0#D-2-0#D-3-0#D-4-0#D-5-0#E-1-0#E-2-0#E-3-0#E-4-0#E-5-0#F-1-0#F-2-0#F-3-0#F-4-0#F-5-0#'),
+('180720#Aurora#13.00#2', 'Madagascar', 'A-1-0#A-2-0#A-3-0#A-4-0#B-1-0#B-2-0#B-3-0#B-4-0#C-1-0#C-2-0#C-3-0#C-4-0#D-1-0#D-2-0#D-3-0#D-4-0#E-1-0#E-2-0#E-3-0#E-4-0#');
 
 -- --------------------------------------------------------
 
@@ -84,9 +106,9 @@ CREATE TABLE `sala` (
 --
 
 INSERT INTO `sala` (`nomesala`, `numeroposti`) VALUES
-('Aurora', 45),
-('Maestrale', 80),
-('Zefiro', 50);
+('Aurora', 20),
+('Maestrale', 15),
+('Zefiro', 30);
 
 -- --------------------------------------------------------
 
@@ -122,6 +144,12 @@ INSERT INTO `struttura` (`idfiliale`, `indirizzo`, `nome`, `telefono`, `email`, 
 --
 ALTER TABLE `film`
   ADD PRIMARY KEY (`titolo`);
+
+--
+-- Indici per le tabelle `mappa`
+--
+ALTER TABLE `mappa`
+  ADD PRIMARY KEY (`nomeschema`);
 
 --
 -- Indici per le tabelle `proiezione`
