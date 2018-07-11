@@ -1,0 +1,22 @@
+{
+  "name": "PrenotazioneCinema",
+  "type": "project",
+  "description": "An application that help cinema in everyday life",
+  "keywords": ["cinema", "dbcinema", "php", "mvc", "api","rest"],
+  "homepage": "https://github.com/Ixion89/ProgettoCinema",
+  "license": "Opensource",
+  "authors": [
+    {
+      "name": "Teresa Bove",
+      "role": "Developer",
+      "name": "Davide Vincenzi",
+      "role": "Developer"
+          }
+  ],
+  "support": {
+    "source": "https://github.com/Ixion89/ProgettoCinema"
+  },
+  "require": {
+    "php": ">=5.3.0"
+  }
+}
