@@ -56,8 +56,30 @@ $pro=EProiezione::costruttore($f1,$s1,'15-07-2018','16.00','2');
 //print_r($conn->load('180702#Aurora#13.00#3'));
 //$parameter=array('idproiezione LIKE \'%#Aurora#%\'');
 //print_r($conn->search($parameter));
-$pro->save();
+//$pro->save();
 //print_r(EProiezione::get_proiezione('180710#Aurora#13.00#3'));
+
+$pro=$pro->get_proiezione('180720#Aurora#13.00#2');
+$temp=$pro->get_mappa_pro()->get_schema();
+$item[]=EItem::costruttore($pro,$temp['B'][2]);
+$item[]=EItem::costruttore($pro,$temp['B'][1]);
+//print_r($item);
+$pag=EPagamento::costruttore('u1',$item);
+//print_r($pag);
+//$pag->pagamento();
+//$biglietto=$pag->crea_biglietto();
+//print_r($biglietto);
+//$conn=new FBiglietto();
+//$conn->store($biglietto);
+//$biglietto->save();
+//$conn=new FPagamento();
+//$conn->store($pag);
+//$pag=$conn->load('229cfb');
+//$pag->pagamento();
+//$conn->update($pag);
+//$parameter=array('persona LIKE \'f%\'');
+//print_r($conn->search($parameter));
+$pag=$pag->get_pagamento('11111');
 
 
 ?>

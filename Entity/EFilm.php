@@ -21,8 +21,6 @@ class EFilm {
 
       public function save(){
              $conn=new FFilm();
-             $cerca=array('titolo = \''.$this->get_titolo().'\'');
-             $res=$conn->search($cerca);
              if ($conn->store($this)){}
              else {$conn->update($this);}}
       public function delete(){

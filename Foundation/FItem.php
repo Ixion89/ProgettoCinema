@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Teresa
- * Date: 02/07/2018
- * Time: 15:27
- */
-
 class FItem extends Fdb{
 
     public function __construct()
@@ -16,5 +9,5 @@ class FItem extends Fdb{
         $this->_connection=USingleton::getInstance("Fdb")->get_connection();
     }
 }
-
+?>
 

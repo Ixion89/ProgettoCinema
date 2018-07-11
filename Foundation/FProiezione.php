@@ -36,7 +36,7 @@ class FProiezione extends Fdb{
             $res=Fdb::load($key);
             $res->extract();
             $res->set_film(EFilm::get_film($res->film)); unset ($res->film);
-            $m=FMappa::load($res[$i]->get_sala());
+            $m=EMappa::get_mappa($res->get_sala()->get_nome());
             $m->set_schema(FProiezione::string_to_mappa($res->mappaproiezione));
             $res->set_mappa_pro($m); unset ($res->mappaproiezione);
             return $res;
@@ -55,7 +55,7 @@ class FProiezione extends Fdb{
              if ($res){for ($i=0; $i<count($res);$i++){
                  $res[$i]->extract();
                  $res[$i]->set_film(EFilm::get_film($res[$i]->film)); unset ($res[$i]->film);
-                 $m=FMappa::load($res[$i]->get_sala());
+                 $m=EMappa::get_mappa($res[$i]->get_sala()->get_nome());
                  $m->set_schema(FProiezione::string_to_mappa($res[$i]->mappaproiezione));
                  $res[$i]->set_mappa_pro($m); unset ($res[$i]->mappaproiezione);} }
              return $res;}
