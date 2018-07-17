@@ -58,7 +58,13 @@ class EPagamento{
                  $totale=$totale+$items[$i]->get_valore();}
 	         return $totale;
 	         }
-      public function pagamento(){
+      public function paga(){
+             $user=$this->get_persona();
+             $conn=new FCredenziale();
+             $param=array ('id = \''.$user.'\'');
+             if ($conn->search($param)){$this->set_pagato(true);}
+             
+             
              if ($this->get_persona()=='u2'){
                 $this->set_pagato(true);}
              else if ($this->get_persona()=='f3'){

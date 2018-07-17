@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Teresa
- * Date: 02/07/2018
- * Time: 15:55
- */
-
 class FSconto extends  Fdb
 {
     public function __construct()

@@ -1,10 +1,10 @@
 <?php
-class FStruttura extends  Fdb{
+class FFiliale extends  Fdb{
 
       public function __construct(){
-             $this->_table='struttura';
+             $this->_table='filiale';
              $this->_key='idfiliale';
-             $this->_return_class='EStruttura';
+             $this->_return_class='EFiliale';
              $this->_connection=USingleton::getInstance("Fdb")->get_connection();}
 
       public function sale_to_string(array $a){
@@ -21,7 +21,7 @@ class FStruttura extends  Fdb{
 
       public function store($struttura){
             if(Fdb::store($struttura)){
-                $query='UPDATE struttura SET listasale=\''.$this->sale_to_string($struttura->get_listasale()).'\' WHERE Idfiliale=\''.$struttura->get_idfiliale().'\';';
+                $query='UPDATE filiale SET listasale=\''.$this->sale_to_string($struttura->get_listasale()).'\' WHERE Idfiliale=\''.$struttura->get_idfiliale().'\';';
                 return $this->query($query);}
             }
 
@@ -34,7 +34,7 @@ class FStruttura extends  Fdb{
             
       public function update($struttura){
              $res=Fdb::update($struttura);
-             $query='UPDATE struttura SET listasale=\''.$this->sale_to_string($struttura->get_listasale()).'\' WHERE idfiliale=\''.$struttura->get_idfiliale().'\';';
+             $query='UPDATE filiale SET listasale=\''.$this->sale_to_string($struttura->get_listasale()).'\' WHERE idfiliale=\''.$struttura->get_idfiliale().'\';';
              $res=$res&&$this->query($query);
              return $res;}
 
