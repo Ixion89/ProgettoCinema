@@ -1,0 +1,11 @@
+<p>
+  film works!
+</p>
+<body>
+    <ul>
+        <li *ngFor="let film of films | async" >
+            <p>-titolo: {{film.titolo}}</p>
+            <p>-regista {{film.regista}}</p>
+            <p>-casa di produzione: {{film.casadiproduzione}}</p>
+    </ul>
+</body>
