@@ -2,3 +2,5 @@
 /Server-side/vendor/
 /Server-side/composer.json
 /Server-side/composer.lock
+/.idea/
+/Server-side/.idea/
