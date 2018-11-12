@@ -1,10 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Teresa
- * Date: 02/07/2018
- * Time: 15:55
- */
+require_once ROOT_DIR.'\app\utility\USingleton.php';
+require_once ROOT_DIR.'\app\foundation\Fdb.php';
+require_once ROOT_DIR.'\app\entity\ESconto.php';
 
 class FSconto extends  Fdb
 {

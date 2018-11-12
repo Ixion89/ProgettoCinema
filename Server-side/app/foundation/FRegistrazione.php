@@ -1,13 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Teresa
- * Date: 02/07/2018
- * Time: 16:21
- */
+require_once ROOT_DIR.'\app\utility\USingleton.php';
+require_once ROOT_DIR.'\app\foundation\Fdb.php';
+require_once ROOT_DIR.'\app\entity\EUtente.php';
 
-require_once 'C:\xampp\htdocs\cinema\app\config\Fdb.php';
-require_once 'C:\xampp\htdocs\cinema\app\foundation\USingleton.php';
 class FRegistrazione extends Fdb
 {
   public function __construct()

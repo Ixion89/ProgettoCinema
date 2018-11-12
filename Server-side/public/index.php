@@ -9,7 +9,9 @@
 use \Psr\Http\Message\ServerRequestInterface as request;
 use \Psr\Http\Message\ResponseInterface as response;
 
-require 'C:\xampp\htdocs\cinema\vendor\autoload.php';
+//define ('ROOT_DIR', 'C:\xampp\htdocs\_progetto\Server-side');
+require_once '..\app\config\config.inc.php';
+require_once ROOT_DIR.'\vendor\autoload.php';
 
 use \Slim\App;
 $app= new \Slim\App();
@@ -37,7 +39,7 @@ $app->get('/hello/{name}', function (Request $request, Response $response, array
     return $response;
 });
 
-require_once 'C:\xampp\htdocs\cinema\app\controller\film.php';
-require_once 'C:\xampp\htdocs\cinema\app\controller\user.php';
+require_once ROOT_DIR.'\app\controller\Cfilm.php';
+require_once ROOT_DIR.'\app\controller\Cuser.php';
 
 $app->run();

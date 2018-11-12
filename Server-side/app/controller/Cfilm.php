@@ -1,14 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Teresa
- * Date: 21/08/2018
- * Time: 15:32
- */
 use \Psr\Http\Message\ServerRequestInterface as request;
 use \Psr\Http\Message\ResponseInterface as response;
-require_once 'C:\xampp\htdocs\cinema\app\foundation\FFilm.php';
-
+require_once ROOT_DIR.'\app\foundation\FFilm.php';
 
 $app->add(function ($req, $res, $next) {
     $response = $next($req, $res);
@@ -27,9 +20,11 @@ $app->add(function ($req, $res, $next) {
 
 $app->post('/provapost',function(request $request) use ($app) {  //al metodo post aggiungere sto use app
     $myname=$request->getParsedBody()['myname'];
-    echo 'Test'.$myname."\n".'SALUTA ANDONIO';
+echo 'Test'.$myname."\n".'SALUTA ANDONIO';});
 
 
-});
+    $app->get('/provami', function (Request $request, Response $response){
+    print ('ciao bello');});
+;
 
 

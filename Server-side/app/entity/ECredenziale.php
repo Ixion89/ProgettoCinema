@@ -1,4 +1,5 @@
 <?php
+require_once ROOT_DIR.'\app\foundation\FCredenziali.php';
 
 class ECredenziale{
  public $numerocarta;

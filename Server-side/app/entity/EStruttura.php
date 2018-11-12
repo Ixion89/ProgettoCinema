@@ -1,4 +1,7 @@
 <?php
+require_once ROOT_DIR.'\app\foundation\FStruttura.php';
+require_once ROOT_DIR.'\app\entity\ESala.php';
+
 class EStruttura {
       public $idfiliale;
       public $nome;

@@ -1,4 +1,6 @@
 <?php
+require_once ROOT_DIR.'\app\foundation\FItem.php';
+
 class EItem {
       public $nome;  //contiene l'id della proiezione e con un altro # il posto
       public $valore;

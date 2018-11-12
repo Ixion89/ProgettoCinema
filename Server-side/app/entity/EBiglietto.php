@@ -1,4 +1,6 @@
 <?php
+require_once ROOT_DIR.'\app\foundation\Fbiglietto.php';
+
 class EBiglietto{
       public $riepilogo;
       public $idbiglietto;

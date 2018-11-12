@@ -1,12 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Teresa
- * Date: 28/06/2018
- * Time: 16:53
- */
+require_once ROOT_DIR.'\app\utility\USingleton.php';
+require_once ROOT_DIR.'\app\foundation\Fdb.php';
+require_once ROOT_DIR.'\app\entity\EProfilo.php';
 
-require_once 'C:\xampp\htdocs\_progetto\Foundation\Fdb.php';
 class FProfilo extends Fdb{
     public function __construct()
     {

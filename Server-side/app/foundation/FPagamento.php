@@ -1,4 +1,8 @@
 <?php
+require_once ROOT_DIR.'\app\utility\USingleton.php';
+require_once ROOT_DIR.'\app\foundation\Fdb.php';
+require_once ROOT_DIR.'\app\entity\EPagamento.php';
+
 class FPagamento extends Fdb{
 
       public function __construct()

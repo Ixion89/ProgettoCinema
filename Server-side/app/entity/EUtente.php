@@ -1,6 +1,8 @@
 <?php
-require_once'C:\xampp\htdocs\cinema\app\entity\EProfilo.php';
-require_once'C:\xampp\htdocs\cinema\app\entity\EGuest.php';
+require_once ROOT_DIR.'\app\foundation\FRegistrazione.php';
+require_once ROOT_DIR.'\app\entity\EGuest.php';
+require_once ROOT_DIR.'\app\entity\EProfilo.php';
+
 class EUtente extends EGuest {
       public $email;
       public $validazione;

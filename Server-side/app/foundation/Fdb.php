@@ -1,6 +1,4 @@
 <?php
-require_once 'C:\xampp\htdocs\cinema\app\config\config.inc.php';
-require_once 'C:\xampp\htdocs\cinema\app\entity\EFilm.php';
 class Fdb{
       public $_connection;
       public $_result;

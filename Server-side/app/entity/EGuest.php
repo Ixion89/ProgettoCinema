@@ -1,4 +1,6 @@
 <?php
+require_once ROOT_DIR.'\app\entity\EUtente.php';
+
 class EGuest {
        public $username;
        public $password;
@@ -21,14 +23,6 @@ class EGuest {
                         print("password errata!");
 						return $this;  //se false ritorna guest
                    }}
-
-                elseif ($un=='movieaq'){
-                       if ($pw=='red'){
-                        $a= new EFiliale($un,$pw);
-						return $a;}  //ritorna filiale
-                else {
-                     print ('password errata!');
-					 return $this;}}  //sefalse ritorna guest
                 else {print("Utente non esistente!");
 				return $this;}}
 }

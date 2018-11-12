@@ -1,4 +1,6 @@
 <?php
+
+define ('ROOT_DIR', 'C:\xampp\htdocs\_progetto\Server-side');
 global $config;
 
 $config['debug']=true;

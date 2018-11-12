@@ -1,2 +1,4 @@
-/Server-side/nbproject/private/
+/Server-side/nbproject/
 /Server-side/vendor/
+/Server-side/composer.json
+/Server-side/composer.lock

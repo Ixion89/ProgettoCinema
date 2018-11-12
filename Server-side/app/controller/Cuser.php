@@ -1,17 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Teresa
- * Date: 21/08/2018
- * Time: 17:30
- */
 use \Psr\Http\Message\ServerRequestInterface as request;
 use \Psr\Http\Message\ResponseInterface as response;
 
-require 'C:\xampp\htdocs\cinema\app\foundation\FRegistrazione.php';
-//require 'C:\xampp\htdocs\cinema\app\config\Fdb.php';
-require  'C:\xampp\htdocs\cinema\app\entity\EUtente.php';
-
+require_once ROOT_DIR.'\app\foundation\FRegistrazione.php';
+require_once ROOT_DIR.'\app\entity\EUtente.php';
 
 $app->add(function ($req, $res, $next) {
     $response = $next($req, $res);
@@ -28,7 +20,7 @@ $app->post('/api/user/signup',function(request $request, response $response) use
     $password=$data['password'];
     $email=$data['email'];
     $freg= new FRegistrazione();
-    $putente= new EUtente($password,$email);
+    $putente= new EUtente();
     $putente->costruttore_registrazione($password,$email);
     $freg->store($putente);
      return $response;

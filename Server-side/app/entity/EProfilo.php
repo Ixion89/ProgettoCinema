@@ -1,7 +1,8 @@
 <?php
+require_once ROOT_DIR.'\app\foundation\FProfilo.php';
+require_once ROOT_DIR.'\app\entity\ECredenziale.php';
+require_once ROOT_DIR.'\app\entity\ESconto.php';
 
-require_once'C:\xampp\htdocs\cinema\app\entity\ESconto.php';
-require_once 'C:\xampp\htdocs\cinema\app\entity\ECredenziale.php';
 class EProfilo{
         public $nome;
 		public $cognome;

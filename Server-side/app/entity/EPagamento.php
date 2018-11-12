@@ -1,4 +1,8 @@
 <?php
+require_once ROOT_DIR.'\app\foundation\FPagamento.php';
+require_once ROOT_DIR.'\app\entity\EItem.php';
+require_once ROOT_DIR.'\app\entity\EProiezione.php';
+
 class EPagamento{
 
       public $persona;

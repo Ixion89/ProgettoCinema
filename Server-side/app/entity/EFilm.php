@@ -1,4 +1,6 @@
 <?php
+require_once ROOT_DIR.'\app\foundation\FFilm.php';
+
 class EFilm {
       public $titolo;
       public $regista;

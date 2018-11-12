@@ -1,6 +1,8 @@
 <?php
-require_once 'C:\xampp\htdocs\cinema\app\foundation\USingleton.php';
-require_once 'C:\xampp\htdocs\cinema\app\config\Fdb.php';
+require_once ROOT_DIR.'\app\utility\USingleton.php';
+require_once ROOT_DIR.'\app\foundation\Fdb.php';
+require_once ROOT_DIR.'\app\entity\EFilm.php';
+
 class FFilm extends Fdb{
 
       public function __construct(){

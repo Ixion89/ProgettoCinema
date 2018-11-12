@@ -1,4 +1,6 @@
 <?php
+require_once ROOT_DIR.'\app\foundation\FSala.php';
+
 class ESala {
       public $nomesala;
       public $numeroposti;
