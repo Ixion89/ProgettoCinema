@@ -15,7 +15,23 @@ require_once ROOT_DIR.'\vendor\autoload.php';
 
 use \Slim\App;
 $app= new \Slim\App();
+
+session_start();
+//$_SESSION['user']='pippo';
+//session_unset();
+
+        $app->get('/login', function (Request $request, Response $response, array $args) {
+       if (isset($_SESSION["user"])){   
+        $name = $_SESSION['user'];
+        $response->getBody()->write("Hello, $name");
+        return $response;
+        } else {
+            $response="Utente non loggato";
+            return $response;
+        }});
+
 $app->options('/{routes:.+}', function ($request, $response, $args) {
+    //$response=$response."\n/n".json_encode($_SESSION);
     return $response;
 });
 
@@ -27,18 +43,22 @@ $app->add(function ($req, $res, $next) {
         ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
 });
 
-$app->add(new \Slim\Middleware\Session([
+/*$app->add(new \Slim\Middleware\Session([
     'name' => 'dummy_session',
     'autorefresh' => true,
     'lifetime' => '1 hour'
-]));
+]));*/
+
 $app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
     $name = $request->getAttribute('name');
     $response->getBody()->write("Hello, $name");
-
     return $response;
 });
 
+$app->get('/prova/sessioni',function (Request $request, Response $response, array $args){
+    //$id=session_id();
+   echo json_encode($_SESSION);
+});
 require_once ROOT_DIR.'\app\controller\Cfilm.php';
 require_once ROOT_DIR.'\app\controller\Cuser.php';
 

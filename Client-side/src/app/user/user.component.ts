@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from 'C:/Users/Teresa/appcinema/src/app/auth.service';
+import {AuthService} from 'C:/xampp/htdocs/_progetto/Client-side/src/app/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {Auth} from 'C:/Users/Teresa/appcinema/src/app/auth';
+import {Auth} from 'C:/xampp/htdocs/_progetto/Client-side/src/app/auth';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
