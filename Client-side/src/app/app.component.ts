@@ -15,11 +15,7 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.http.get('http://cinema/api/films/all').subscribe((data: any) => {
-            console.log("component", data);
-            this.title = data;  //ok funziona
-
-        });
+        
 
     }
 
